@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', sans-serif;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c1c28;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #28283a;
+}
+
+/* Custom glow animations */
+@keyframes cyber-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    border-color: rgba(0, 240, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.45);
+    border-color: rgba(0, 240, 255, 0.8);
+  }
+}
+
+.glow-cyan-pulse {
+  animation: cyber-pulse 2s infinite ease-in-out;
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* React Flow custom overrides */
+.react-flow__edge-path {
+  stroke-width: 2;
+  stroke: #28283a;
+  transition: stroke 0.3s;
+}
+
+.react-flow__edge.active .react-flow__edge-path {
+  stroke: #00f0ff;
+  stroke-dasharray: 5;
+  animation: flow-dash 1.5s linear infinite;
+}
+
+.react-flow__handle {
+  background: #00f0ff !important;
+  border: 2px solid #050508 !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/* Glassmorphism containers */
+.glass-panel {
+  background: rgba(18, 18, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(28, 28, 40, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  background: rgba(28, 28, 40, 0.6);
+}
+
+/* Grid overlay background */
+.bg-grid-cyber {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+}
